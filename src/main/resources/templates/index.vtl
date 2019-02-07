@@ -1,0 +1,53 @@
+<h1>Beauty Hair Salon</h1>
+<h2>All Lists: </h2>
+
+#if($stylists)
+  <p>Click on a stylists to see his/her clients:</p>
+  <ul>
+    #foreach ($stylist in $stylists)
+      <li><a href="/stylists/$stylist.getId()">$stylist.getStylistName()</a></li>
+    #end
+  </ul>
+#else
+  <p>There are no stylists!</p>
+#end
+
+<h2>Add New Stylist</h2>
+<form action="/stylists" method="post">
+<div class="form-group">
+<label for="stylistName">Name: </label>
+<input type="text" class="form-control" id="stylistName" placeholder="Enter stylist name">
+</div>
+<div class="form-group">
+<label for="stylistPhone">Phone No: </label>
+<input type="number" class="form-control" id="stylistPhone" placeholder="Enter phone number">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Email address</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
+</form>
+
+<h2>Add New Client</h2>
+<form action="/clients" method="post">
+<label for="stylistId">Select a Stylist</label>
+<select class="form-control" id='stylistId' name='stylistId' type='text'>
+  #foreach($stylist in $stylists)
+    <option value="$stylist.getId()">$stylist.getStylistName()</option>
+  #end
+</select>
+<div class="form-group">
+<label for="clientName">Name: </label>
+<input type="text" class="form-control" id="clientName" placeholder="Enter client name">
+</div>
+<div class="form-group">
+<label for="clientPhone">Phone No: </label>
+<input type="number" class="form-control" id="clientPhone" placeholder="Enter phone number">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">Email address</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
+</form>
