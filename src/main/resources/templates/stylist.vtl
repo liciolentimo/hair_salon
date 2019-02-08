@@ -6,9 +6,21 @@
 
 <ul>
   #foreach($client in $stylist.getClients())
-   <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getClientName()<br>
-   $client.getClientPhone()<br>
-   $client.getClientEmail()</a></li>
+         <div class="ui cards">
+  <div class="card">
+    <div class="content">
+      
+      <div class="header">
+  <a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getClientName()</a>
+  </div>
+      <div class="meta">
+        $client.getClientName()'s details
+      </div>
+      <div class="description">
+        Phone: $client.getClientPhone()<br>
+        Email: $client.getClientEmail()
+      </div>
+    </div>
   #end
 </ul>
 
