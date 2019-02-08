@@ -45,7 +45,7 @@ public class App {
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
-        post("/stylists/:stylistId/clients/:id", (request, response) -> {
+        post("/stylists/:stylist_Id/clients/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             Client client = Client.find(Integer.parseInt(request.params("id")));
             String clientName = request.queryParams("clientName");

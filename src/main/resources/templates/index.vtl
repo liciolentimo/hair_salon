@@ -5,7 +5,15 @@
   <p id="click">Click on a stylists to see his/her clients:</p>
   <ul>
     #foreach ($stylist in $stylists)
-      <li><a href="/stylists/$stylist.getId()">$stylist.getStylistName()</a></li>
+      <div class="ui cards">
+  <div class="card">
+    <div class="content">
+      
+      <div class="header">
+        <a href="stylists/$stylist.getId()"> $stylist.getStylistName()</a>
+      </div>
+     
+    </div>
     #end
   </ul>
 #else
@@ -14,6 +22,8 @@
 
 <form class="ui form" id="stylistForm" action="/stylists" method="post">
   <div class="field">
+
+<h2>Add New Stylist</h2>
     <label>Name</label>
     <input type="text" name="stylistName" placeholder="Enter stylist name">
   </div>
@@ -28,7 +38,7 @@
   </div>
   <button class="positive ui button" type="submit">Submit</button>
 </form>
-
+<div id="clienthome">
 <h2>Add New Client</h2>
 <form action="/clients" method="post" class="ui form" id="clientForm">
 <label>Select a Stylist</label>
@@ -47,8 +57,10 @@
   </div>
   <div class="field">
     <label>Email</label>
-    <input type="email" name="clientEmail" placeholder="Enter Email">
+    <input type="email" name="clientEmail" placeholder="Enter Email"><br>
   </div>
-  </div>
+  
   <button class="positive ui button" type="submit">Submit</button>
 </form>
+</div>
+</div>

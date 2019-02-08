@@ -2,6 +2,11 @@
 
 <h2> Client belongs to: $stylist.getStylistName() .</h2>
 
+<h2>$client.getClientName()'s details:</h2>
+<p class="details">Phone: $client.getClientPhone()</p>
+<p class="details">Email: $client.getClientEmail()</p>
+
+
 <h2>Edit Client:</h2>
 
 <form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post" class="ui form" id="clientupdate">
