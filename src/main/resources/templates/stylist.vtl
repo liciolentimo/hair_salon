@@ -1,0 +1,38 @@
+<h1>$stylist.getStylistName() clients:</h1>
+
+<h2>$stylist.getStylistName()'s details:</h2>
+<p>Phone: $stylist.getStylistPhone</p>
+<p>Email: $stylist.getStylistEmail</p>
+
+<ul>
+  #foreach($client in $stylist.getClients())
+   <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getClientName()</a></li>
+  #end
+</ul>
+
+<h2>Edit Stylist:</h2>
+
+<form action="/stylists/$stylist.getStylistId()" method="post" class="ui form">
+  <div class="field">
+    <label>Name</label>
+    <input type="text" name="stylistName" placeholder="Update stylist name">
+  </div>
+  <div class="field">
+    <label>Phone</label>
+    <input type="number" name="stylistPhone" placeholder="Update Phone ">
+  </div>
+  <div class="field">
+    <label>Email</label>
+    <input type="email" name="stylistEmail" placeholder="Update Email">
+  </div>
+  </div>
+  <button type="submit" class="positive ui button">Update Stylist</button>
+</form><br><br>
+
+<form action="/stylists/$stylist.getStylistId()/delete" method="post" class="ui form">
+  <button type="submit" class="negative ui button" id="delete-stylist">Delete Stylist</button>
+</form><br><br>
+
+
+<a href="/stylists/$stylist.getId()/clients/new"><button class="ui primary button">Add a new client</button></a><br>
+<a href="/stylists"><button class="ui primary button">All stylists</button></a>
