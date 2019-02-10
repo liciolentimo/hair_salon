@@ -7,6 +7,11 @@ services:
   before_script:
   - psql -c 'create database hair_salon_test;' -U postgres
 
+  deploy:
+  provider: heroku
+  api_key:
+    secure: 46e62a1c-7386-4d9e-b758-3abc41730454
+
 # before_script:
 #   - psql -c "CREATE DATABASE hair_salon_test;" -U postgres
 #   - psql -c "CREATE USER licio WITH PASSWORD '9353';" -U postgres
