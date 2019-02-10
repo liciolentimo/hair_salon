@@ -73,4 +73,19 @@ public class Client {
             con.createQuery(sql).addParameter("id", id).executeUpdate();
         }
     }
+
+    @Override
+    public boolean equals(Object otherClient){
+      if (!(otherClient instanceof Client)) {
+        return false;
+      } else {
+        Client newClient = (Client) otherClient;
+        return this.getClientName().equals(newClient.getClientName()) &&
+               this.getClientPhone() == (newClient.getClientPhone()) &&
+               this.getClientEmail().equals(newClient.getClientEmail()) &&
+               this.getId() == newClient.getId() &&
+               this.getStylistId() == newClient.getStylistId();
+      }
+    }
+
 }
