@@ -1,6 +1,9 @@
 language: java
 jdk: oraclejdk8
 
+services:
+  - postgresql
+
 before_script:
   - psql -c "CREATE DATABASE hair_salon;" -U postgres
   - psql -c "CREATE USER licio WITH PASSWORD '9353';" -U postgres
