@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro');
+
 input[type="text"],
 select {
   width: 100%;
@@ -7,6 +9,7 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 input[type="submit"] {
@@ -18,28 +21,40 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 input[type="submit"]:hover {
   background-color: #45a049;
+  font-family: 'Advent Pro', sans-serif;
 }
 
-/* body {
-    text-align: center;
-} */
+body {
+  background-image: url("https://images.pexels.com/photos/1713054/pexels-photo-1713054.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  font-family: 'Advent Pro', sans-serif;
+  color: white;
+}
 
 #stylistForm {
   display: inline-block;
   margin-left: 30px;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 #click {
   margin-left: 30px;
 }
 
+#home{
+  align-content: center;
+}
+
 h1,
 h2 {
   margin-left: 30px;
+  color: #fff;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 h1{
@@ -57,6 +72,7 @@ h1{
 
 .details {
   margin-left: 30px;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 #clientupdate {
@@ -75,6 +91,7 @@ h1{
 
 #deleteclient {
   margin-left: 30px;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 #clientadd {
@@ -88,4 +105,19 @@ h1{
 
 #addstyle{
   margin-left: 30px;
+}
+label{
+  color: #fff;
+  font-family: 'Advent Pro', sans-serif;
+}
+
+#navhome{
+  color: #fff;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
+}
+
+#clienthome{
+  display: inline-block;
+  margin-left: 120px;
 }
