@@ -61,6 +61,22 @@ public class Stylist {
         }
     }
 
+    public static Stylist findName(String stylistName) {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM stylists where stylistName=:stylistName";
+            Stylist stylist = con.createQuery(sql).addParameter("stylistName", stylistName).executeAndFetchFirst(Stylist.class);
+            return stylist;
+        }
+    }
+
+    public static Stylist findEmail(String stylistEmail) {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM stylists where stylistEmail=:stylistEmail";
+            Stylist stylist = con.createQuery(sql).addParameter("stylistEmail", stylistEmail).executeAndFetchFirst(Stylist.class);
+            return stylist;
+        }
+    }
+
     @Override
     public boolean equals(Object otherStylist) {
         if (!(otherStylist instanceof Stylist)) {
@@ -74,10 +90,10 @@ public class Stylist {
         }
     }
 
-    public void update(String stylistName,int stylistPhone, String stylistEmail) {
+    public void update(String stylistName,int stylistPhone,String stylistEmail) {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "UPDATE stylists SET stylistName,stylistsPhone,clientEmail = :stylistName,:stylistPhone,:clientEmail WHERE id = :id";
-            con.createQuery(sql).addParameter("stylistName",stylistName).addParameter("stylistPhone", stylistPhone).addParameter("stylistEmail", stylistEmail)
+            String sql = "UPDATE stylists SET stylistName,stylistPhone,stylistEmail = :stylistName,:stylistPhone,stylistEmail WHERE id = :id";
+            con.createQuery(sql).addParameter("stylistName",stylistName)
                     .addParameter("id", id).executeUpdate();
         }
     }

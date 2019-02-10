@@ -52,6 +52,24 @@ public class StylistTest {
     }
 
     @Test
+    public void find_returnsStylistWithSameName_secondStylist() {
+        Stylist firstStylist = new Stylist("mary", 5678, "mary@test.com");
+        firstStylist.save();
+        Stylist secondStylist = new Stylist("kevin", 5679, "kevin@test.com");
+        secondStylist.save();
+        assertEquals(Stylist.findName(secondStylist.getStylistName()), secondStylist);
+    }
+
+    @Test
+    public void find_returnsStylistWithSameEmail_secondStylist() {
+        Stylist firstStylist = new Stylist("mary", 5678, "mary@test.com");
+        firstStylist.save();
+        Stylist secondStylist = new Stylist("kevin", 5679, "kevin@test.com");
+        secondStylist.save();
+        assertEquals(Stylist.findEmail(secondStylist.getStylistEmail()), secondStylist);
+    }
+
+    @Test
     public void getClients_initiallyReturnsEmptyList_ArrayList() {
         Stylist testStylist = new Stylist("mary", 5678, "mary@test.com");
         assertEquals(0, testStylist.getClients().size());
@@ -89,6 +107,15 @@ public class StylistTest {
         secondClient.save();
         Client[] clients = new Client[] { firstClient, secondClient };
         assertTrue(myStylist.getClients().containsAll(Arrays.asList(clients)));
+    }
+
+    @Test
+    public void delete_deletesStylist_true() {
+        Stylist myStylist = new Stylist("mary", 5678, "mary@test.com");
+        myStylist.save();
+        int myStylistId = myStylist.getId();
+        myStylist.delete();
+        assertEquals(null, Stylist.find(myStylistId));
     }
 
 }

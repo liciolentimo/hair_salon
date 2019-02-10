@@ -79,7 +79,7 @@ public class ClientTest {
     // public void update_updatesClientDetails_true() {
     //     Client myClient = new Client("john", 1234, "john@test.com", 1);
     //     myClient.save();
-    //     myClient.update("james", 1274, "james@test.com");
+    //     myClient.updateName("james");
     //     assertEquals("james", Client.find(myClient.getId()).getClientName());
     //     assertEquals(1274, Client.find(myClient.getId()).getClientPhone());
     //     assertEquals("james@test.com", Client.find(myClient.getId()).getClientEmail());
