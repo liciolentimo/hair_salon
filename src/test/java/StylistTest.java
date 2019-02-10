@@ -51,4 +51,44 @@ public class StylistTest {
         assertEquals(Stylist.find(secondStylist.getId()), secondStylist);
     }
 
+    @Test
+    public void getClients_initiallyReturnsEmptyList_ArrayList() {
+        Stylist testStylist = new Stylist("mary", 5678, "mary@test.com");
+        assertEquals(0, testStylist.getClients().size());
+    }
+
+    @Test
+    public void equals_returnsTrueIfStylistsAretheSame() {
+        Stylist firstStylist = new Stylist("mary", 5678, "mary@test.com");
+        Stylist secondStylist = new Stylist("mary", 5678, "mary@test.com");
+        assertTrue(firstStylist.equals(secondStylist));
+    }
+
+    @Test
+    public void save_savesIntoDatabase_true() {
+        Stylist myStylist = new Stylist("mary", 5678, "mary@test.com");
+        myStylist.save();
+        assertTrue(Stylist.all().get(0).equals(myStylist));
+    }
+
+    @Test
+    public void save_assignsIdToObject() {
+        Stylist myStylist = new Stylist("mary", 5678, "mary@test.com");
+        myStylist.save();
+        Stylist savedStylist = Stylist.all().get(0);
+        assertEquals(myStylist.getId(), savedStylist.getId());
+    }
+
+    @Test
+    public void getClients_retrievesALlClientsFromDatabase_clientsList() {
+        Stylist myStylist = new Stylist("mary", 5678, "mary@test.com");
+        myStylist.save();
+        Client firstClient = new Client("john", 1234, "john@test.com", myStylist.getId());
+        firstClient.save();
+        Client secondClient = new Client("james", 1239, "james@test.com", myStylist.getId());
+        secondClient.save();
+        Client[] clients = new Client[] { firstClient, secondClient };
+        assertTrue(myStylist.getClients().containsAll(Arrays.asList(clients)));
+    }
+
 }

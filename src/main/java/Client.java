@@ -61,7 +61,7 @@ public class Client {
 
     public void update(String clientName,int clientPhone, String clientEmail) {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "UPDATE clients SET clientName,clientPhone,clientEmail = :clientName,:clientPhone,:clientEmail WHERE id = :id";
+            String sql = "UPDATE clients SET clientName = :clientName,:clientPhone,:clientEmail WHERE id = :id";
             con.createQuery(sql).addParameter("clientName",clientName).addParameter("clientPhone", clientPhone).addParameter("clientEmail", clientEmail)
                     .addParameter("id", id).executeUpdate();
         }
@@ -87,5 +87,6 @@ public class Client {
                this.getStylistId() == newClient.getStylistId();
       }
     }
+
 
 }

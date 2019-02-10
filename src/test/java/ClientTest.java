@@ -57,4 +57,49 @@ public class ClientTest {
         assertEquals(Client.find(secondClient.getId()), secondClient);
     }
 
+    @Test
+    public void save_assignsIdToObject() {
+        Client myClient = new Client("john", 1234, "john@test.com", 1);
+        myClient.save();
+        Client savedClient = Client.all().get(0);
+        assertEquals(myClient.getId(), savedClient.getId());
+    }
+
+    @Test
+    public void save_savesStylistIdIntoDB_true() {
+        Stylist myStylist = new Stylist("mary", 5678, "mary@test.com");
+        myStylist.save();
+        Client myClient = new Client("john", 1234, "john@test.com", myStylist.getId());
+        myClient.save();
+        Client savedClient = Client.find(myClient.getId());
+        assertEquals(savedClient.getStylistId(), myStylist.getId());
+    }
+
+    // @Test
+    // public void update_updatesClientDetails_true() {
+    //     Client myClient = new Client("john", 1234, "john@test.com", 1);
+    //     myClient.save();
+    //     myClient.update("james", 1274, "james@test.com");
+    //     assertEquals("james", Client.find(myClient.getId()).getClientName());
+    //     assertEquals(1274, Client.find(myClient.getId()).getClientPhone());
+    //     assertEquals("james@test.com", Client.find(myClient.getId()).getClientEmail());
+    // }
+    
+
+    @Test
+    public void delete_deletesClient_true() {
+        Client myClient = new Client("john", 1234, "john@test.com", 1);
+        myClient.save();
+        int myClientId = myClient.getId();
+        myClient.delete();
+        assertEquals(null, Client.find(myClientId));
+    }
+
+    @Test
+    public void save_returnsTrueIfDetailsAretheSame() {
+        Client myClient = new Client("john", 1234, "john@test.com", 1);
+        myClient.save();
+        assertTrue(Client.all().get(0).equals(myClient));
+    }
+
 }
