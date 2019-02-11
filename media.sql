@@ -126,6 +126,8 @@ ALTER TABLE ONLY public.stylists ALTER COLUMN id SET DEFAULT nextval('public.sty
 
 COPY public.clients (id, clientname, clientphone, clientemail, stylistid) FROM stdin;
 4	client	234567	rfghj@dg	1
+6	cli	34567	hhjh@dgh	2
+7	client3	345	jkk@nj	3
 \.
 
 
@@ -137,7 +139,6 @@ COPY public.stylists (id, stylistname, stylistphone, stylistemail) FROM stdin;
 1	stylist	345	test@test.com
 2	style2	345	style@test.com
 3	style3	3456	he@sdgb
-4	style 4	890990	style@style4.com
 \.
 
 
@@ -145,7 +146,7 @@ COPY public.stylists (id, stylistname, stylistphone, stylistemail) FROM stdin;
 -- Name: clients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: licio
 --
 
-SELECT pg_catalog.setval('public.clients_id_seq', 4, true);
+SELECT pg_catalog.setval('public.clients_id_seq', 9, true);
 
 
 --
