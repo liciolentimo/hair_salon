@@ -26,6 +26,9 @@ Make sure Postgres server is installed and run the following commands:
 * `CREATE DATABASE hair_salon_test;`
 * `CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;`
 
+## Deployment
+This app is deployed on heroku: https://quiet-plateau-37764.herokuapp.com/
+
 ## Author 
 
 [MIT](LICENSE) © Licio Lentimo
