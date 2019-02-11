@@ -127,7 +127,7 @@ public class App {
             // Stylist stylist = Stylist.find(stylist.getId());
             stylist.delete();
             model.put("stylist", stylist);
-            model.put("template", "templates/stylist.vtl");
+            model.put("template", "templates/delete-success.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
